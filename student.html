@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Class</title>
+</head>
+<body>
+
+  <h2>Student Details</h2>
+  <p id="output"></p>
+
+  <script>
+    // Class definition
+    class Student {
+      constructor(name, rollNo, marks) {
+        this.name = name;
+        this.rollNo = rollNo;
+        this.marks = marks;
+      }
+
+      display() {
+        document.getElementById("output").innerHTML =
+          "Name: " + this.name + "<br>" +
+          "Roll No: " + this.rollNo + "<br>" +
+          "Marks: " + this.marks;
+      }
+    }
+
+    // Object creation
+    let s1 = new Student("Raj", 101, 85);
+    s1.display();
+  </script>
+
+</body>
+</html>
