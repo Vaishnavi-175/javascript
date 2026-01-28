@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Double Click Event</title>
+</head>
+<body>
+
+  <h2>Double Click Example</h2>
+
+  <button ondblclick="showMessage()">
+    Double Click Me
+  </button>
+
+  <p id="msg"></p>
+
+  <script>
+    function showMessage() {
+      document.getElementById("msg").innerText =
+        "Mouse button double clicked!";
+    }
+  </script>
+
+</body>
+</html>
+

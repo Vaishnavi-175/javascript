@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mouse Over Event</title>
+</head>
+<body>
+
+  <h2>Mouse Over Example</h2>
+
+  <button onmouseover="showMessage()">
+    Move mouse over me
+  </button>
+
+  <p id="msg"></p>
+
+  <script>
+    function showMessage() {
+      document.getElementById("msg").innerText =
+        "Mouse is moved over the button!";
+    }
+  </script>
+
+</body>
+</html>

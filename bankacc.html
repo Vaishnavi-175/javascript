@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bank Account</title>
+</head>
+<body>
+
+  <h2>Bank Account Details</h2>
+
+  <p id="details"></p>
+
+  <button onclick="depositMoney()">Deposit 500</button>
+  <button onclick="withdrawMoney()">Withdraw 300</button>
+
+  <script>
+    // Class definition
+    class BankAccount {
+      constructor(name, accNo, balance) {
+        this.name = name;
+        this.accNo = accNo;
+        this.balance = balance;
+      }
+
+      deposit(amount) {
+        this.balance += amount;
+      }
+
+      withdraw(amount) {
+        if (amount <= this.balance) {
+          this.balance -= amount;
+        } else {
+          alert("Insufficient Balance");
+        }
+      }
+
+      display() {
+        document.getElementById("details").innerHTML =
+          "Account Holder: " + this.name + "<br>" +
+          "Account Number: " + this.accNo + "<br>" +
+          "Balance: ₹" + this.balance;
+      }
+    }
+
+    // Object creation
+    let account = new BankAccount("Raj", 123456, 2000);
+    account.display();
+
+    // Functions for buttons
+    function depositMoney() {
+      account.deposit(500);
+      account.display();
+    }
+
+    function withdrawMoney() {
+      account.withdraw(300);
+      account.display();
+    }
+  </script>
+
+</body>
+</html>
