@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Before Close Warning</title>
+</head>
+<body>
+
+  <h2>Close the window to see warning</h2>
+  <p>This page will show a warning before closing.</p>
+
+  <script>
+    window.onbeforeunload = function () {
+      return "Are you sure you want to leave this page?";
+    };
+  </script>
+
+</body>
+</html>

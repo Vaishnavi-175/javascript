@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number and Image Validation</title>
+</head>
+<body>
+
+  <h2>Number and Image Validation Form</h2>
+
+  <form onsubmit="return validateForm()">
+
+    Number:
+    <input type="text" id="number">
+    <br><br>
+
+    Select Image:
+    <input type="file" id="image">
+    <br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="msg"></p>
+
+  <script>
+    function validateForm() {
+      let num = document.getElementById("number").value;
+      let img = document.getElementById("image").value;
+      let message = document.getElementById("msg");
+
+      
+      if (num === "") {
+        message.innerText = "Number field must not be empty";
+        message.style.color = "red";
+        return false;
+      }
+
+      
+      if (isNaN(num)) {
+        message.innerText = "Only numbers are allowed";
+        message.style.color = "red";
+        return false;
+      }
+
+      // image selected check
+      if (img === "") {
+        message.innerText = "Please select an image";
+        message.style.color = "red";
+        return false;
+      }
+
+      // image format check
+      let allowed = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      if (!allowed.test(img)) {
+        message.innerText = "Only image files are allowed";
+        message.style.color = "red";
+        return false;
+      }
+
+      message.innerText = "Form submitted successfully ✔";
+      message.style.color = "green";
+      return true;
+    }
+  </script>
+
+</body>
+</html>

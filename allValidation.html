@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Validation Form</title>
+</head>
+<body>
+
+  <h2>All Validation Form</h2>
+
+  <form onsubmit="return validateForm()">
+
+    Number:
+    <input type="text" id="number">
+    <br><br>
+
+    Email:
+    <input type="text" id="email">
+    <br><br>
+
+    Password:
+    <input type="password" id="password">
+    <br><br>
+
+    Select Image:
+    <input type="file" id="image">
+    <br><br>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <p id="msg"></p>
+
+  <script>
+    function validateForm() {
+      let num = document.getElementById("number").value;
+      let email = document.getElementById("email").value;
+      let pwd = document.getElementById("password").value;
+      let img = document.getElementById("image").value;
+      let msg = document.getElementById("msg");
+
+      // Number validation
+      if (num === "") {
+        msg.innerText = "Number must not be empty";
+        msg.style.color = "red";
+        return false;
+      }
+      if (isNaN(num)) {
+        msg.innerText = "Only numbers are allowed";
+        msg.style.color = "red";
+        return false;
+      }
+
+      // Email validation
+      if (email === "") {
+        msg.innerText = "Email must not be empty";
+        msg.style.color = "red";
+        return false;
+      }
+      let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        msg.innerText = "Enter valid email address";
+        msg.style.color = "red";
+        return false;
+      }
+
+     
+      if (pwd === "") {
+        msg.innerText = "Password must not be empty";
+        msg.style.color = "red";
+        return false;
+      }
+      if (pwd.length < 8) {
+        msg.innerText = "Password must be at least 8 characters";
+        msg.style.color = "red";
+        return false;
+      }
+
+      
+      if (img === "") {
+        msg.innerText = "Please select an image";
+        msg.style.color = "red";
+        return false;
+      }
+      let imgPattern = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+      if (!imgPattern.test(img)) {
+        msg.innerText = "Only image files are allowed";
+        msg.style.color = "red";
+        return false;
+      }
+
+      msg.innerText = "Form submitted successfully ✔";
+      msg.style.color = "green";
+      return true;
+    }
+  </script>
+
+</body>
+</html>

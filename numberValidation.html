@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Number Validation</title>
+</head>
+<body>
+
+  <h2>Enter Number</h2>
+
+  <input type="text" id="num">
+  <br><br>
+  <button onclick="validate()">Submit</button>
+
+  <p id="msg"></p>
+
+  <script>
+    function validate() {
+      let value = document.getElementById("num").value;
+      let message = document.getElementById("msg");
+
+      if (value === "") {
+        message.innerText = "Field must not be empty";
+        message.style.color = "red";
+        return;
+      }
+
+      if (isNaN(value)) {
+        message.innerText = "Only numbers are allowed";
+        message.style.color = "red";
+        return;
+      }
+
+      message.innerText = "Valid number ✔";
+      message.style.color = "green";
+    }
+  </script>
+
+</body>
+</html>

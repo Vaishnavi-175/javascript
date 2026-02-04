@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Input Field Blur Event</title>
+</head>
+<body>
+
+  <h2>Enter your name</h2>
+
+  <input 
+    type="text" 
+    id="name" 
+    placeholder="Type here"
+    onblur="showMessage()"
+  >
+
+  <p id="msg"></p>
+
+  <script>
+    function showMessage() {
+      document.getElementById("msg").innerText =
+        "You left the input field!";
+    }
+  </script>
+
+</body>
+</html>
