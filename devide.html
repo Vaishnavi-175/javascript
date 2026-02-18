@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exception Handling Demo</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    input {
+      padding: 5px;
+      margin: 5px;
+    }
+    button {
+      padding: 8px 15px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Division using Try Catch Finally</h2>
+
+  Enter Numerator:
+  <input type="number" id="num1"><br><br>
+
+  Enter Denominator:
+  <input type="number" id="num2"><br><br>
+
+  <button onclick="divide()">Divide</button>
+
+  <div id="result"></div>
+
+  <script>
+    function divide() {
+      let a = Number(document.getElementById("num1").value);
+      let b = Number(document.getElementById("num2").value);
+      let resultDiv = document.getElementById("result");
+
+      try {
+        if (b == 0) {
+          throw "Denominator cannot be zero!";
+        }
+        let result = a / b;
+        resultDiv.style.color = "green";
+        resultDiv.innerHTML = "Result = " + result;
+      }
+      catch (error) {
+        resultDiv.style.color = "red";
+        resultDiv.innerHTML = "Error: " + error;
+      }
+      finally {
+        console.log("Division operation completed");
+      }
+    }
+  </script>
+
+</body>
+</html>

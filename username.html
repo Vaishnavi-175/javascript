@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Username Check</title>
+</head>
+<body>
+
+<h3>Enter Username</h3>
+
+<input type="text" id="username">
+<br><br>
+<button onclick="checkUsername()">Submit</button>
+
+<p id="msg"></p>
+
+<script>
+function checkUsername() {
+  try {
+    var user = document.getElementById("username").value;
+
+    if (user == "") {
+      throw "Username cannot be empty!";
+    } 
+    else {
+      document.getElementById("msg").innerHTML = "Valid Username: " + user;
+    }
+  }
+  catch (error) {
+    document.getElementById("msg").innerHTML = "Exception: " + error;
+  }
+}
+</script>
+
+</body>
+</html>
